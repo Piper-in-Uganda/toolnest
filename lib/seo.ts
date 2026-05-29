@@ -68,6 +68,9 @@ export const rootMetadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.defaultDescription,
+  verification: {
+    google: 'SxOVtfqXMjm12C06XwzkyQr5Yh7XAJ_gFyS6Bo2eAls',
+  },
   applicationName: siteConfig.name,
   creator: siteConfig.name,
   publisher: siteConfig.name,
