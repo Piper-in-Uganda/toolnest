@@ -28,6 +28,12 @@ export const tools: Tool[] = [
     description:
       'Remove duplicate lines from any text instantly while preserving order, with line stats and copy.',
   },
+  {
+    href: '/tools/remove-empty-lines',
+    title: 'Remove Empty Lines',
+    description:
+      'Delete blank and whitespace-only lines from text while keeping line order, with stats and copy.',
+  },
 ]
 
 export const navLinks: NavLink[] = [

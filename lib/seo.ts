@@ -35,6 +35,13 @@ export const removeDuplicateLinesSeo: PageSeo = {
   path: '/tools/remove-duplicate-lines',
 }
 
+export const removeEmptyLinesSeo: PageSeo = {
+  title: 'Remove Empty Lines',
+  description:
+    'Remove blank and whitespace-only lines from text online. Keep line order with total lines, remaining lines, and empty-line stats.',
+  path: '/tools/remove-empty-lines',
+}
+
 export function createPageMetadata({ title, description, path }: PageSeo): Metadata {
   const canonicalPath = path
   const pageUrl = new URL(path, siteConfig.url).toString()

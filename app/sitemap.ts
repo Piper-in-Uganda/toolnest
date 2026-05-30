@@ -2,12 +2,19 @@ import type { MetadataRoute } from 'next'
 import {
   homeSeo,
   removeDuplicateLinesSeo,
+  removeEmptyLinesSeo,
   textCompareSeo,
   wordCounterSeo,
 } from '@/lib/seo'
 import { siteConfig } from '@/lib/site'
 
-const indexedPages = [homeSeo, wordCounterSeo, textCompareSeo, removeDuplicateLinesSeo]
+const indexedPages = [
+  homeSeo,
+  wordCounterSeo,
+  textCompareSeo,
+  removeDuplicateLinesSeo,
+  removeEmptyLinesSeo,
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return indexedPages.map((page) => ({
