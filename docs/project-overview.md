@@ -19,8 +19,10 @@ ToolNest 是一个面向写作者、编辑者与内容团队的**在线文本工
 
 | 工具 | 路由 | 功能摘要 |
 |------|------|----------|
-| 字数统计 | `/tools/word-counter` | 实时统计字数、字符、句子与阅读时间 |
+| 字数统计 | `/tools/word-counter` | 实时统计字数、字符、句子与阅读时间；含 SEO 指南与 FAQ |
 | 文本对比 | `/tools/text-compare` | 双栏对比、差异高亮、相似度与差异指标 |
+| 去除重复行 | `/tools/remove-duplicate-lines` | 按行去重、保留顺序、统计与复制 |
+| 去除空行 | `/tools/remove-empty-lines` | 删除空白行与仅含空格的行、保留顺序 |
 
 ### 产品定位
 
@@ -62,24 +64,41 @@ toolnest/
 │   ├── sitemap.ts                # sitemap.xml 生成
 │   └── tools/                    # 工具页面目录
 │       ├── word-counter/
-│       │   ├── layout.tsx        # 工具页 SEO Metadata
-│       │   └── page.tsx          # 字数统计（Client Component）
-│       └── text-compare/
-│           ├── layout.tsx
-│           └── page.tsx          # 文本对比（Client Component）
-├── components/                   # 可复用 UI 组件
+│       │   ├── layout.tsx
+│       │   ├── page.tsx
+│       │   ├── word-counter-tool.tsx
+│       │   └── word-counter-seo-content.tsx
+│       ├── text-compare/
+│       ├── remove-duplicate-lines/
+│       └── remove-empty-lines/
+├── components/
 │   ├── navbar.tsx
 │   ├── footer.tsx
+│   ├── tools/
+│   │   └── tool-seo-section.tsx  # 工具页 SEO 内容区块
 │   └── ui/
-│       ├── page-container.tsx    # 页面内容容器
-│       ├── tool-card.tsx         # 工具卡片
-│       └── stat-card.tsx         # 统计数据卡片
-├── lib/                          # 业务与配置逻辑
-│   ├── tools.ts                  # 工具列表与导航数据（单一数据源）
-│   ├── seo.ts                    # SEO Metadata 工厂与页面配置
-│   ├── site.ts                   # 站点 URL 与基础配置
-│   └── text-diff.ts              # 文本对比 / Diff 算法
-├── docs/                         # 项目文档（本目录）
+│       ├── button.tsx
+│       ├── tool-page-layout.tsx
+│       ├── section-title.tsx
+│       ├── stats-card.tsx
+│       ├── stats-grid.tsx
+│       ├── page-container.tsx
+│       └── tool-card.tsx
+├── lib/
+│   ├── tools.ts
+│   ├── seo.ts
+│   ├── site.ts
+│   ├── text-diff.ts
+│   ├── remove-duplicate-lines.ts
+│   └── remove-empty-lines.ts
+├── docs/                         # 项目文档
+│   ├── project-overview.md       # 中文
+│   ├── design-system.md
+│   ├── code-rules.md
+│   ├── tool-roadmap.md
+│   ├── seo-progress.md           # English
+│   ├── development-log.md
+│   └── feature-backlog.md
 ├── public/                       # 静态资源
 ├── next.config.ts
 ├── tsconfig.json                 # 路径别名 @/* → 项目根目录
@@ -167,10 +186,21 @@ docs: 更新工具路线图
 
 ### 部署后检查清单
 
-- [ ] 首页与工具页可正常访问
-- [ ] `/sitemap.xml` 与 `/robots.txt` 可访问
-- [ ] 生产环境 `NEXT_PUBLIC_SITE_URL` 已配置
+- [x] 首页与工具页可正常访问
+- [x] `/sitemap.xml` 与 `/robots.txt` 可访问
+- [x] Vercel 生产部署可用
+- [x] Google Search Console 已验证
+- [ ] 生产环境 `NEXT_PUBLIC_SITE_URL` 与 GSC 域名一致（如使用自定义域名）
 - [ ] 页面 title / description 在浏览器与分享预览中正确
+
+### 当前基础设施状态
+
+| 项目 | 状态 |
+|------|------|
+| GitHub 仓库 | 已关联 |
+| Vercel 部署 | 已上线（如 `toolnest-green-xi.vercel.app`） |
+| SEO Metadata | `lib/seo.ts` + 各工具 `layout.tsx` |
+| Sitemap / Robots | `app/sitemap.ts`、`app/robots.ts` |
 
 ---
 
@@ -179,6 +209,9 @@ docs: 更新工具路线图
 - [设计系统](./design-system.md) — UI 风格与组件规范
 - [代码规范](./code-rules.md) — 编码约定与最佳实践
 - [工具路线图](./tool-roadmap.md) — 未来工具规划
+- [SEO Progress](./seo-progress.md) — 搜索与索引状态（English）
+- [Development Log](./development-log.md) — 开发里程碑（English）
+- [Feature Backlog](./feature-backlog.md) — 功能待办（English）
 
 ---
 
@@ -190,4 +223,4 @@ docs: 更新工具路线图
 | 负责人 | 项目维护者 / Tech Lead |
 | 语言 | 中文（面向团队内部与中文贡献者） |
 
-*最后更新：2026 年 5 月*
+*最后更新：2026 年 5 月（4 个工具已上线）*

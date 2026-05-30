@@ -4,95 +4,98 @@
 
 本文档规划 ToolNest 未来工具扩展方向、优先级与实现要点，供产品与开发对齐长期迭代节奏。路线图会随用户反馈与数据调整，建议每季度回顾一次。
 
+英文待办清单见 [feature-backlog.md](./feature-backlog.md)；SEO 进展见 [seo-progress.md](./seo-progress.md)。
+
 ---
 
 ## 路线图总览
 
 ```text
-阶段一（当前）     核心文本工具 MVP
+阶段一（已完成）   核心文本工具 MVP（4 个工具）
     ↓
-阶段二（近期）     写作增强工具
+阶段二（进行中）   写作增强 + 开发者工具（高优先级待办）
     ↓
-阶段三（中期）     格式转换与批量处理
+阶段三（中期）     格式转换与预览类工具
     ↓
 阶段四（长期）     协作、账户与国际化
 ```
 
 ---
 
-## 阶段一：当前已完成（MVP）
+## 阶段一：已完成
 
 | 工具 | 路由 | 状态 | 核心价值 |
 |------|------|------|----------|
-| 字数统计 | `/tools/word-counter` | ✅ 已上线 | 字数、字符、句子、阅读时间 |
+| 字数统计 | `/tools/word-counter` | ✅ 已上线 | 字数、字符、句子、阅读时间；含 SEO 内容区 |
 | 文本对比 | `/tools/text-compare` | ✅ 已上线 | Diff 高亮、相似度、差异统计 |
+| 去除重复行 | `/tools/remove-duplicate-lines` | ✅ 已上线 | 行级去重、顺序保留、复制结果 |
+| 去除空行 | `/tools/remove-empty-lines` | ✅ 已上线 | 删除空行与空白行、统计与复制 |
 
-### MVP 阶段目标
+### 阶段一成果
 
-- 验证产品形态与 SEO 获客能力
-- 建立可复用的工具页模板与组件体系
-- 完成基础部署与文档体系
-
----
-
-## 阶段二：近期规划（写作增强）
-
-优先级：**高** — 与现有用户群（写作者、编辑）高度契合。
-
-| 工具 | 建议路由 | 功能描述 | 优先级 |
-|------|----------|----------|--------|
-| 大小写转换 | `/tools/case-converter` | 大写、小写、标题格式、句首大写 | P0 |
-| 去除多余空行 | `/tools/whitespace-cleaner` | 合并空行、去除行首尾空格 | P0 |
-| 文本去重 | `/tools/text-deduplicator` | 按行去重、保留顺序 | P1 |
-|  Lorem 占位符生成 | `/tools/lorem-ipsum` | 按字数/段落生成占位文本 | P1 |
-| 可读性分析 | `/tools/readability` | 基于句长、音节的简易可读性评分 | P2 |
-
-### 实现要点
-
-- 均为**纯前端**逻辑，延续当前无后端架构
-- 复用 `PageContainer` + `StatCard` 或新增结果展示区组件
-- 在 `lib/tools.ts` 注册后即可出现在首页与导航
+- SaaS 风格首页（Hero、Popular Tools、Why ToolNest、Footer）
+- 共享 UI：`ToolPageLayout`、`Button`、`StatsCard`、`StatsGrid`、`SectionTitle`
+- SEO：`robots.txt`、`sitemap.xml`、逐页 Metadata、Search Console 验证
+- 文档体系：中文规范文档 + 英文运营文档
 
 ---
 
-## 阶段三：中期规划（格式与转换）
+## 阶段二：高优先级（下一批）
 
-优先级：**中** — 扩大工具覆盖面，吸引开发者与运营人群。
+详见 [feature-backlog.md](./feature-backlog.md) High Priority 章节。
+
+| 工具 | 建议路由 | 优先级 |
+|------|----------|--------|
+| 大小写转换 | `/tools/case-converter` | P0 |
+| 字符计数 | `/tools/character-counter` | P0 |
+| JSON 格式化 | `/tools/json-formatter` | P0 |
+| 密码生成器 | `/tools/password-generator` | P0 |
+| URL 编解码 | `/tools/url-encoder` | P0 |
+| Base64 编解码 | `/tools/base64-encoder` | P0 |
+
+### 横切任务（与工具并行）
+
+| 任务 | 说明 |
+|------|------|
+| 全工具 SEO 内容区 | 参照 Word Counter 的指南 + FAQ 模板 |
+| 核心算法单元测试 | `text-diff`、去重、去空行等 |
+| Open Graph 图片 | 社交分享预览优化 |
+
+---
+
+## 阶段三：中期规划
 
 | 工具 | 建议路由 | 功能描述 | 优先级 |
 |------|----------|----------|--------|
 | Markdown 预览 | `/tools/markdown-preview` | 实时渲染 Markdown | P1 |
-| JSON 格式化 | `/tools/json-formatter` | 格式化、压缩、校验 | P1 |
 | HTML 实体编解码 | `/tools/html-encoder` | 编码与解码 | P2 |
 | 正则测试器 | `/tools/regex-tester` | 匹配高亮、分组展示 | P2 |
-| 字数统计（多语言） | `/tools/word-counter` 增强 | 中文按字、英文按词切换 | P2 |
+| Lorem 占位符 | `/tools/lorem-ipsum` | 按字数/段落生成 | P1 |
+| 可读性分析 | `/tools/readability` | 简易可读性评分 | P2 |
+| 行首尾去空格 | `/tools/trim-lines` | 批量 trim 每行 | P1 |
 
 ### 实现要点
 
-- JSON / Markdown 类工具注意**大文本性能**（防抖、`useMemo`、Web Worker 可选）
-- 评估是否引入轻量依赖（如 `marked`），需权衡包体积
+- JSON / Markdown 类注意大文本性能（防抖、`useMemo`）
+- 轻量依赖需评估包体积
 - 错误提示友好，避免白屏
 
 ---
 
-## 阶段四：长期规划（平台化）
-
-优先级：**低 / 探索** — 视流量与商业化需求推进。
+## 阶段四：长期规划
 
 | 方向 | 说明 |
 |------|------|
-| 用户账户 | 保存历史记录、收藏工具（需后端或 BaaS） |
-| 团队协作 | 共享对比结果、批注（复杂度高） |
-| 多语言界面 | 中文 / 英文 UI i18n（`next-intl` 等） |
-| 浏览器扩展 | 快速调用 ToolNest 工具 |
-| API 开放 | 为第三方提供字数统计等 API（需服务端） |
-| 付费高级功能 | 批量处理、导出 PDF、无广告 |
+| 用户账户 | 历史记录、收藏（需后端或 BaaS） |
+| 团队协作 | 共享结果、批注 |
+| 多语言界面 | `next-intl` 等 |
+| 浏览器扩展 | 快速调用工具 |
+| 开放 API | 需服务端与限流 |
+| 付费高级功能 | 批量导出、无广告等 |
 
 ---
 
 ## 新工具接入 checklist
-
-每新增一个工具，建议按以下清单执行：
 
 ### 产品
 
@@ -107,14 +110,14 @@
 - [ ] `app/tools/[slug]/layout.tsx` 配置 SEO
 - [ ] `lib/seo.ts` 添加页面 SEO 对象
 - [ ] `app/sitemap.ts` 加入索引条目
-- [ ] 复用设计系统组件，符合 [design-system.md](./design-system.md)
+- [ ] 复用 `ToolPageLayout`、`StatsCard`、`Button` 等组件
 - [ ] `npm run lint` 与 `npm run build` 通过
 
-### 发布
+### 发布与文档
 
-- [ ] 本地与 Vercel 预览环境验证
-- [ ] 检查 sitemap 是否包含新 URL
-- [ ] 更新本文档路线图状态
+- [ ] Vercel 预览与生产验证
+- [ ] Search Console 提交/检查 sitemap
+- [ ] 更新 [tool-roadmap.md](./tool-roadmap.md)、[development-log.md](./development-log.md)、[feature-backlog.md](./feature-backlog.md)
 
 ---
 
@@ -131,15 +134,13 @@
 
 ## 技术债务与改进（横切）
 
-与具体工具并行，建议持续关注：
-
 | 项目 | 说明 |
 |------|------|
-| 单元测试 | 为 `lib/text-diff.ts` 等核心算法补充测试 |
-| 性能 | 超长文本（>100k 字符）的 Diff 性能优化 |
-| 国际化 | UI 文案抽离，支持中英文切换 |
-| 分析 | 接入隐私友好的访问统计（如 Plausible） |
-| OG 图片 | 为各工具页生成专属 Open Graph 图 |
+| 单元测试 | 为 `lib/*` 核心算法补充测试 |
+| 性能 | 超长文本 Diff 优化 |
+| 国际化 | UI 文案抽离 |
+| 分析 | Plausible 等隐私友好统计 |
+| OG 图片 | 各工具专属分享图 |
 
 ---
 
@@ -147,7 +148,10 @@
 
 | 日期 | 变更 |
 |------|------|
-| 2026-05 | 初版路线图：MVP 完成，规划阶段二至阶段四 |
+| 2026-05 | 初版：Word Counter、Text Compare |
+| 2026-05 | 首页改版、共享组件、SEO 系统 |
+| 2026-05 | Remove Duplicate Lines、Remove Empty Lines 上线 |
+| 2026-05 | Word Counter SEO 内容区；英文 ops 文档；路线图同步至 4 工具 |
 
 ---
 
@@ -156,5 +160,8 @@
 - [项目概览](./project-overview.md)
 - [设计系统](./design-system.md)
 - [代码规范](./code-rules.md)
+- [Feature Backlog](./feature-backlog.md)
+- [Development Log](./development-log.md)
+- [SEO Progress](./seo-progress.md)
 
-*维护说明：新增或上线工具后，请同步更新本文档中的状态与版本记录。*
+*维护说明：新增或上线工具后，请同步更新本文档与 feature-backlog.md。*
