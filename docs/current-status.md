@@ -8,7 +8,7 @@ Single-page snapshot of what is live, what is in progress, and what ships next. 
 
 ---
 
-## Live Tools (5)
+## Live Tools (6)
 
 | Tool | Route | SEO content | Notes |
 |------|-------|-------------|-------|
@@ -17,6 +17,7 @@ Single-page snapshot of what is live, what is in progress, and what ships next. 
 | Remove Duplicate Lines | `/tools/remove-duplicate-lines` | Metadata only | Copy + stats |
 | Remove Empty Lines | `/tools/remove-empty-lines` | Metadata only | Copy + stats |
 | Case Converter | `/tools/case-converter` | Yes | 7 case formats + per-card copy |
+| Character Counter | `/tools/character-counter` | Yes | 7 live metrics + copy/clear |
 
 ---
 
@@ -29,7 +30,7 @@ Single-page snapshot of what is live, what is in progress, and what ships next. 
 | Repository | GitHub connected |
 | Tool registry | `lib/tools.ts` |
 | SEO metadata | `lib/seo.ts` + per-tool `layout.tsx` |
-| Sitemap | `app/sitemap.ts` (6 public URLs) |
+| Sitemap | `app/sitemap.ts` (7 public URLs) |
 | Robots | `app/robots.ts` |
 | Search Console | Verified |
 | Production URL | `https://toolnest-green-xi.vercel.app` |
@@ -53,13 +54,15 @@ Single-page snapshot of what is live, what is in progress, and what ships next. 
 
 ## Recent Release
 
-**Case Converter** (`/tools/case-converter`)
+**Character Counter** (`/tools/character-counter`)
 
-- Real-time conversion to 7 case styles
-- Characters / words / lines statistics
-- Copy button on each output card
+- Characters with/without spaces, letters only
+- Words, sentences, paragraphs, lines
+- Copy Text and Clear buttons
 - SEO guide + FAQ sections
 - Registered in tools list, sitemap, and metadata
+
+**Case Converter** (`/tools/case-converter`) — 7 case formats, per-card copy, SEO content
 
 ---
 
@@ -70,13 +73,13 @@ Single-page snapshot of what is live, what is in progress, and what ships next. 
 | SEO content on Text Compare + line tools | High |
 | Unit tests for `lib/*` algorithms | Medium |
 | Custom Open Graph images | Medium |
-| Next high-priority tool (JSON Formatter or Character Counter) | High |
+| Next high-priority tool (JSON Formatter or Password Generator) | High |
 
 ---
 
 ## Next Up (from backlog)
 
-1. Character Counter or JSON Formatter  
+1. JSON Formatter or Password Generator  
 2. Extend SEO sections to remaining tools  
 3. Password Generator / URL Encoder / Base64 tools  
 

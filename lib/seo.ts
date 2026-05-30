@@ -49,6 +49,13 @@ export const caseConverterSeo: PageSeo = {
   path: '/tools/case-converter',
 }
 
+export const characterCounterSeo: PageSeo = {
+  title: 'Character Counter',
+  description:
+    'Free online character counter with spaces, without spaces, letters only, plus words, sentences, paragraphs, and lines—updated in real time.',
+  path: '/tools/character-counter',
+}
+
 export function createPageMetadata({ title, description, path }: PageSeo): Metadata {
   const canonicalPath = path
   const pageUrl = new URL(path, siteConfig.url).toString()

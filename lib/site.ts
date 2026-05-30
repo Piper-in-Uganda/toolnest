@@ -14,7 +14,7 @@ function resolveSiteUrl(): string {
 
 export const siteConfig = {
   name: 'ToolNest',
-  url: 'https://toolnest-green-xi.vercel.app',
+  url: resolveSiteUrl(),
   locale: 'en_US',
   defaultDescription:
     'Free online text tools for writers and editors. Count words, compare text, and improve content with fast browser-based utilities.',

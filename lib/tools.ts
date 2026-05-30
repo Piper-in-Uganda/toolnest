@@ -40,6 +40,12 @@ export const tools: Tool[] = [
     description:
       'Convert text to uppercase, lowercase, title, sentence, camelCase, snake_case, and kebab-case instantly.',
   },
+  {
+    href: '/tools/character-counter',
+    title: 'Character Counter',
+    description:
+      'Count characters with or without spaces, letters, words, sentences, paragraphs, and lines live.',
+  },
 ]
 
 export const navLinks: NavLink[] = [
