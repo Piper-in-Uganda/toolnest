@@ -34,6 +34,12 @@ export const tools: Tool[] = [
     description:
       'Delete blank and whitespace-only lines from text while keeping line order, with stats and copy.',
   },
+  {
+    href: '/tools/case-converter',
+    title: 'Case Converter',
+    description:
+      'Convert text to uppercase, lowercase, title, sentence, camelCase, snake_case, and kebab-case instantly.',
+  },
 ]
 
 export const navLinks: NavLink[] = [

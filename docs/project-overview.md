@@ -23,6 +23,7 @@ ToolNest 是一个面向写作者、编辑者与内容团队的**在线文本工
 | 文本对比 | `/tools/text-compare` | 双栏对比、差异高亮、相似度与差异指标 |
 | 去除重复行 | `/tools/remove-duplicate-lines` | 按行去重、保留顺序、统计与复制 |
 | 去除空行 | `/tools/remove-empty-lines` | 删除空白行与仅含空格的行、保留顺序 |
+| 大小写转换 | `/tools/case-converter` | 7 种大小写格式、实时转换、逐项复制 |
 
 ### 产品定位
 
@@ -70,7 +71,8 @@ toolnest/
 │       │   └── word-counter-seo-content.tsx
 │       ├── text-compare/
 │       ├── remove-duplicate-lines/
-│       └── remove-empty-lines/
+│       ├── remove-empty-lines/
+│       └── case-converter/
 ├── components/
 │   ├── navbar.tsx
 │   ├── footer.tsx
@@ -90,7 +92,8 @@ toolnest/
 │   ├── site.ts
 │   ├── text-diff.ts
 │   ├── remove-duplicate-lines.ts
-│   └── remove-empty-lines.ts
+│   ├── remove-empty-lines.ts
+│   └── case-converter.ts
 ├── docs/                         # 项目文档
 │   ├── project-overview.md       # 中文
 │   ├── design-system.md
@@ -98,7 +101,8 @@ toolnest/
 │   ├── tool-roadmap.md
 │   ├── seo-progress.md           # English
 │   ├── development-log.md
-│   └── feature-backlog.md
+│   ├── feature-backlog.md
+│   └── current-status.md
 ├── public/                       # 静态资源
 ├── next.config.ts
 ├── tsconfig.json                 # 路径别名 @/* → 项目根目录
@@ -223,4 +227,4 @@ docs: 更新工具路线图
 | 负责人 | 项目维护者 / Tech Lead |
 | 语言 | 中文（面向团队内部与中文贡献者） |
 
-*最后更新：2026 年 5 月（4 个工具已上线）*
+*最后更新：2026 年 5 月（5 个工具已上线）*

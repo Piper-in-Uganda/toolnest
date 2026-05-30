@@ -14,6 +14,7 @@ This backlog tracks planned tools and platform improvements for ToolNest. Items 
 | Text Compare | `/tools/text-compare` | Yes |
 | Remove Duplicate Lines | `/tools/remove-duplicate-lines` | Yes |
 | Remove Empty Lines | `/tools/remove-empty-lines` | Yes |
+| Case Converter | `/tools/case-converter` | Yes |
 
 ---
 
@@ -23,7 +24,6 @@ Tools with strong search demand, clear frontend-only implementation, and fit for
 
 | Tool | Suggested route | Description | Notes |
 |------|-----------------|-------------|-------|
-| Case Converter | `/tools/case-converter` | Upper, lower, title, sentence case | Complements Word Counter users |
 | Character Counter | `/tools/character-counter` | Count chars with/without spaces, bytes estimate | Overlap with Word Counter — consider merge or dedicated landing |
 | JSON Formatter | `/tools/json-formatter` | Format, minify, validate JSON | Developer audience; error UX important |
 | Password Generator | `/tools/password-generator` | Length, charset options, copy | High search volume; security copy needed |

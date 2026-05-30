@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import {
+  caseConverterSeo,
   homeSeo,
   removeDuplicateLinesSeo,
   removeEmptyLinesSeo,
@@ -14,6 +15,7 @@ const indexedPages = [
   textCompareSeo,
   removeDuplicateLinesSeo,
   removeEmptyLinesSeo,
+  caseConverterSeo,
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -14,7 +14,7 @@ This log records major milestones, infrastructure work, fixes, and current prior
 | Tool expansion | Word Counter, Text Compare, line-processing tools |
 | Platform polish | SaaS-style homepage, shared UI components, footer |
 | SEO & docs | Metadata system, robots/sitemap, Search Console, `/docs` |
-| Current | Four live tools, Vercel production, documentation maintenance |
+| Current | Five live tools, Vercel production, documentation maintenance |
 
 ---
 
@@ -28,8 +28,10 @@ This log records major milestones, infrastructure work, fixes, and current prior
 | Text Compare | `/tools/text-compare` | Shipped |
 | Remove Duplicate Lines | `/tools/remove-duplicate-lines` | Shipped |
 | Remove Empty Lines | `/tools/remove-empty-lines` | Shipped |
+| Case Converter | `/tools/case-converter` | Shipped |
 | SaaS-style homepage | `/` | Shipped (hero, popular tools, benefits, footer) |
 | Word Counter SEO content | `/tools/word-counter` | Shipped (guide + FAQ sections) |
+| Case Converter SEO content | `/tools/case-converter` | Shipped (guide + FAQ sections) |
 
 ### UI & architecture
 
@@ -38,8 +40,9 @@ This log records major milestones, infrastructure work, fixes, and current prior
 | Shared components | `Button`, `ToolPageLayout`, `SectionTitle`, `StatsCard`, `StatsGrid` |
 | Tool registry | Single source of truth in `lib/tools.ts` (nav, homepage, footer) |
 | Client/server split | Interactive tools as Client Components; metadata in `layout.tsx` |
-| Logic modules | `lib/text-diff.ts`, `lib/remove-duplicate-lines.ts`, `lib/remove-empty-lines.ts` |
+| Logic modules | `lib/text-diff.ts`, `lib/remove-duplicate-lines.ts`, `lib/remove-empty-lines.ts`, `lib/case-converter.ts` |
 | Tool SEO sections | `ToolSeoSection` component for long-form tool page content |
+| Case output UI | `CaseOutputCard` with per-format copy buttons |
 
 ### SEO & discoverability
 
@@ -98,8 +101,8 @@ Local dev → Git commit → GitHub push → PR (optional) → merge main → Ve
 
 ### Live surface area
 
-- **4 tools** published and linked from homepage, navbar, and footer
-- **5 indexed routes** in sitemap (home + 4 tools)
+- **5 tools** published and linked from homepage, navbar, and footer
+- **6 indexed routes** in sitemap (home + 5 tools)
 - **Production URL**: `https://toolnest-green-xi.vercel.app` (see `lib/site.ts`)
 - **No backend database** — all tool processing runs in the browser
 
@@ -111,7 +114,7 @@ Local dev → Git commit → GitHub push → PR (optional) → merge main → Ve
 
 ### Gaps / in progress
 
-- SEO guide sections only on Word Counter (other tools: metadata only)
+- SEO guide sections on Word Counter and Case Converter (other tools: metadata only)
 - No automated tests for `lib/*` algorithms yet
 - No privacy-friendly analytics wired in
 - Custom Open Graph images not yet created
@@ -122,7 +125,7 @@ Local dev → Git commit → GitHub push → PR (optional) → merge main → Ve
 
 ### Immediate (next sprint)
 
-1. Ship **high-priority tools** from [feature-backlog.md](./feature-backlog.md) (start with Case Converter or JSON Formatter)
+1. Ship **high-priority tools** from [feature-backlog.md](./feature-backlog.md) (JSON Formatter or Character Counter next)
 2. Add **SEO content blocks** to Text Compare and line tools (match Word Counter pattern)
 3. Update **tool-roadmap.md** and **seo-progress.md** after each release
 
@@ -149,6 +152,7 @@ Local dev → Git commit → GitHub push → PR (optional) → merge main → Ve
 | May 2026 | SEO system, robots/sitemap, Search Console verification |
 | May 2026 | Remove Duplicate Lines, Remove Empty Lines |
 | May 2026 | Word Counter SEO sections; English ops docs added |
+| May 2026 | Case Converter; `current-status.md`; `CaseOutputCard` component |
 
 ---
 

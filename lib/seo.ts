@@ -42,6 +42,13 @@ export const removeEmptyLinesSeo: PageSeo = {
   path: '/tools/remove-empty-lines',
 }
 
+export const caseConverterSeo: PageSeo = {
+  title: 'Case Converter',
+  description:
+    'Free online case converter for uppercase, lowercase, title case, sentence case, camelCase, snake_case, and kebab-case with live preview and copy.',
+  path: '/tools/case-converter',
+}
+
 export function createPageMetadata({ title, description, path }: PageSeo): Metadata {
   const canonicalPath = path
   const pageUrl = new URL(path, siteConfig.url).toString()

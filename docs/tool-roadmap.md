@@ -11,7 +11,7 @@
 ## 路线图总览
 
 ```text
-阶段一（已完成）   核心文本工具 MVP（4 个工具）
+阶段一（已完成）   核心文本工具 MVP（5 个工具）
     ↓
 阶段二（进行中）   写作增强 + 开发者工具（高优先级待办）
     ↓
@@ -30,6 +30,7 @@
 | 文本对比 | `/tools/text-compare` | ✅ 已上线 | Diff 高亮、相似度、差异统计 |
 | 去除重复行 | `/tools/remove-duplicate-lines` | ✅ 已上线 | 行级去重、顺序保留、复制结果 |
 | 去除空行 | `/tools/remove-empty-lines` | ✅ 已上线 | 删除空行与空白行、统计与复制 |
+| 大小写转换 | `/tools/case-converter` | ✅ 已上线 | 7 种命名格式、实时转换、逐项复制 |
 
 ### 阶段一成果
 
@@ -46,7 +47,6 @@
 
 | 工具 | 建议路由 | 优先级 |
 |------|----------|--------|
-| 大小写转换 | `/tools/case-converter` | P0 |
 | 字符计数 | `/tools/character-counter` | P0 |
 | JSON 格式化 | `/tools/json-formatter` | P0 |
 | 密码生成器 | `/tools/password-generator` | P0 |
@@ -152,6 +152,7 @@
 | 2026-05 | 首页改版、共享组件、SEO 系统 |
 | 2026-05 | Remove Duplicate Lines、Remove Empty Lines 上线 |
 | 2026-05 | Word Counter SEO 内容区；英文 ops 文档；路线图同步至 4 工具 |
+| 2026-05 | Case Converter 上线；`current-status.md`；共 5 个工具 |
 
 ---
 
@@ -163,5 +164,6 @@
 - [Feature Backlog](./feature-backlog.md)
 - [Development Log](./development-log.md)
 - [SEO Progress](./seo-progress.md)
+- [Current Status](./current-status.md)
 
 *维护说明：新增或上线工具后，请同步更新本文档与 feature-backlog.md。*

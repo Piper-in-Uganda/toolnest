@@ -54,6 +54,7 @@ This document tracks search engine optimization status, indexing health, and upc
 | `/tools/text-compare` | 0.8 | monthly |
 | `/tools/remove-duplicate-lines` | 0.8 | monthly |
 | `/tools/remove-empty-lines` | 0.8 | monthly |
+| `/tools/case-converter` | 0.8 | monthly |
 
 When adding a new tool, update `lib/seo.ts`, `app/sitemap.ts`, and resubmit the sitemap in Search Console if needed.
 
@@ -81,6 +82,7 @@ Indexing is an ongoing process. After launch or major URL changes, Google may ta
 | Text Compare | Yes | Tool + metadata |
 | Remove Duplicate Lines | Yes | Tool + metadata |
 | Remove Empty Lines | Yes | Tool + metadata |
+| Case Converter | Yes | Tool + guide + FAQ |
 
 ### Indexing checklist
 
